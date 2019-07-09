@@ -74,7 +74,7 @@ public class CustomLayerExample {
                 .build())
             .layer(2, new OutputLayer.Builder(LossFunctions.LossFunction.MCXENT)                //Standard OutputLayer
                 .activation(Activation.SOFTMAX).nIn(7).nOut(nOut).build())
-            .pretrain(false).backprop(true).build();
+            .build();
 
 
         //First:  run some basic sanity checks on the configuration:

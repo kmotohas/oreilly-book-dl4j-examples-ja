@@ -66,7 +66,7 @@ public class ParagraphVectorsClassifierExample {
     }
 
     void makeParagraphVectors()  throws Exception {
-      org.nd4j.linalg.io.ClassPathResource resource = new org.nd4j.linalg.io.ClassPathResource("dl4j-examples/src/main/resources/paravec/labeled");
+      org.nd4j.linalg.io.ClassPathResource resource = new org.nd4j.linalg.io.ClassPathResource("paravec/labeled");
 
       // build a iterator for our dataset
       iterator = new FileLabelAwareIterator.Builder()
@@ -97,7 +97,7 @@ public class ParagraphVectorsClassifierExample {
       which categories our unlabeled document falls into.
       So we'll start loading our unlabeled documents and checking them
      */
-     org.nd4j.linalg.io.ClassPathResource unClassifiedResource = new org.nd4j.linalg.io.ClassPathResource("dl4j-examples/src/main/resources/paravec/unlabeled");
+     org.nd4j.linalg.io.ClassPathResource unClassifiedResource = new org.nd4j.linalg.io.ClassPathResource("paravec/unlabeled");
      FileLabelAwareIterator unClassifiedIterator = new FileLabelAwareIterator.Builder()
              .addSourceFolder(unClassifiedResource.getFile())
              .build();

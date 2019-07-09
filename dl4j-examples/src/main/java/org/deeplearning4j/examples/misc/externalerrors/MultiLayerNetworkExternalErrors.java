@@ -39,11 +39,10 @@ public class MultiLayerNetworkExternalErrors {
             .seed(12345)
             .activation(Activation.TANH)
             .weightInit(WeightInit.XAVIER)
-            .updater(new Nesterovs(0.1))
+            .updater(new Nesterovs(0.1, 0.9))
             .list()
             .layer(0, new DenseLayer.Builder().nIn(nIn).nOut(3).build())
             .layer(1, new DenseLayer.Builder().nIn(3).nOut(3).build())
-            .backprop(true).pretrain(false)
             .build();
 
         MultiLayerNetwork model = new MultiLayerNetwork(conf);

@@ -102,7 +102,6 @@ public class MnistImagePipelineExampleSave {
         log.info("BUILD MODEL");
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
             .seed(rngseed)
-            .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
             .updater(new Nesterovs(0.006, 0.9))
             .l2(1e-4)
             .list()

@@ -39,7 +39,7 @@ Word2vec-index/
 *.conf
 *.json
 *end.model
-*.pv
+dl4j-memory-crash-dump*.txt
 
 CustomLayerModel.zip
 MyComputationGraph.zip

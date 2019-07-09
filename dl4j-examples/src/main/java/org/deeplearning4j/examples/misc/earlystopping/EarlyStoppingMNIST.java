@@ -54,7 +54,6 @@ public class EarlyStoppingMNIST {
             .l2(0.0005)
             .weightInit(WeightInit.XAVIER)
             .activation(Activation.RELU)
-            .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
             .updater(new Nesterovs(0.02, 0.9))
             .list()
             .layer(0, new ConvolutionLayer.Builder(5, 5)
@@ -73,7 +72,7 @@ public class EarlyStoppingMNIST {
                 .activation(Activation.SOFTMAX)
                 .build())
             .setInputType(InputType.convolutionalFlat(28, 28, 1)) //See note in LenetMnistExample
-            .backprop(true).pretrain(false).build();
+            .build();
 
         //Get data:
         DataSetIterator mnistTrain1024 = new MnistDataSetIterator(batchSize,1024,false,true,true,12345);
@@ -83,7 +82,7 @@ public class EarlyStoppingMNIST {
         String exampleDirectory = FilenameUtils.concat(tempDir, "DL4JEarlyStoppingExample/");
         EarlyStoppingModelSaver saver = new LocalFileModelSaver(exampleDirectory);
         EarlyStoppingConfiguration esConf = new EarlyStoppingConfiguration.Builder()
-                .epochTerminationConditions(new MaxEpochsTerminationCondition(50)) //Max of 50 epochs
+                .epochTerminationConditions(new MaxEpochsTerminationCondition(100)) //Max of 100 epochs
                 .evaluateEveryNEpochs(1)
                 .iterationTerminationConditions(new MaxTimeIterationTerminationCondition(20, TimeUnit.MINUTES)) //Max of 20 minutes
                 .scoreCalculator(new DataSetLossCalculator(mnistTest512, true))     //Calculate test set score

@@ -124,7 +124,7 @@ public class UCISequenceClassificationExample {
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
                 .seed(123)    //Random number generator seed for improved repeatability. Optional.
                 .weightInit(WeightInit.XAVIER)
-                .updater(new Nesterovs(0.005))
+                .updater(new Nesterovs(0.005, 0.9))
                 .gradientNormalization(GradientNormalization.ClipElementWiseAbsoluteValue)  //Not always required, but helps with this data set
                 .gradientNormalizationThreshold(0.5)
                 .list()

@@ -151,7 +151,7 @@ public class TrainingStatsExample {
 
         //Set up network configuration:
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
-            .updater(new Nesterovs(0.1))
+            .updater(new Nesterovs(0.1, 0.9))
             .seed(12345)
             .l2(0.001)
             .weightInit(WeightInit.XAVIER)
@@ -161,7 +161,6 @@ public class TrainingStatsExample {
             .layer(2, new RnnOutputLayer.Builder(LossFunctions.LossFunction.MCXENT).activation(Activation.SOFTMAX)        //MCXENT + softmax for classification
                 .nIn(lstmLayerSize).nOut(nOut).build())
             .backpropType(BackpropType.TruncatedBPTT).tBPTTForwardLength(tbpttLength).tBPTTBackwardLength(tbpttLength)
-            .pretrain(false).backprop(true)
             .build();
 
         return conf;

@@ -102,7 +102,7 @@ public class MnistMLPExample {
             .seed(12345)
             .activation(Activation.LEAKYRELU)
             .weightInit(WeightInit.XAVIER)
-            .updater(new Nesterovs(0.1))// To configure: .updater(Nesterovs.builder().momentum(0.9).build())
+            .updater(new Nesterovs(0.1, 0.9))// To configure: .updater(Nesterovs.builder().momentum(0.9).build())
             .l2(1e-4)
             .list()
             .layer(0, new DenseLayer.Builder().nIn(28 * 28).nOut(500).build())

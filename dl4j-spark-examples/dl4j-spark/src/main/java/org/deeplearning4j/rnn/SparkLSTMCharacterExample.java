@@ -104,14 +104,13 @@ public class SparkLSTMCharacterExample {
             .seed(12345)
             .l2(0.001)
             .weightInit(WeightInit.XAVIER)
-            .updater(new RmsProp(0.1))
+            .updater(new RmsProp(0.1, 0.95, 1e-8))
             .list()
             .layer(0, new LSTM.Builder().nIn(CHAR_TO_INT.size()).nOut(lstmLayerSize).activation(Activation.TANH).build())
             .layer(1, new LSTM.Builder().nIn(lstmLayerSize).nOut(lstmLayerSize).activation(Activation.TANH).build())
             .layer(2, new RnnOutputLayer.Builder(LossFunction.MCXENT).activation(Activation.SOFTMAX)        //MCXENT + softmax for classification
                 .nIn(lstmLayerSize).nOut(nOut).build())
             .backpropType(BackpropType.TruncatedBPTT).tBPTTForwardLength(tbpttLength).tBPTTBackwardLength(tbpttLength)
-            .pretrain(false).backprop(true)
             .build();
 
 

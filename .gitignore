@@ -39,6 +39,7 @@ Word2vec-index/
 *.conf
 *.json
 *end.model
+*.pv
 
 CustomLayerModel.zip
 MyComputationGraph.zip

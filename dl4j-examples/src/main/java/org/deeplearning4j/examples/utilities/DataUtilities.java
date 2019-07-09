@@ -1,15 +1,15 @@
 package org.deeplearning4j.examples.utilities;
 
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
-    import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
-    import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
-    import org.apache.http.HttpEntity;
-    import org.apache.http.client.methods.CloseableHttpResponse;
-    import org.apache.http.client.methods.HttpGet;
-    import org.apache.http.impl.client.CloseableHttpClient;
-    import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
+import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 
-    import java.io.*;
+import java.io.*;
 
 /**
  * Common data utility functions.

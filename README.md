@@ -2,11 +2,11 @@
 
 ---
 
-![表紙](../../cover-original.png)
+![表紙](cover-original.png)
 
 ---
 
-本リポジトリはオライリー・ジャパン発行書籍『[詳説 Deep Learning★](https://www.oreilly.co.jp/books/978487311XXXX/)★』（原書名『[Deep Learning: A Practitioner's Approach](http://shop.oreilly.com/product/0636920035343.do)』）のサポートサイトです。
+本リポジトリはオライリー・ジャパン発行書籍『[詳説 Deep Learning —— 実務者のためのアプローチ](http://www.oreilly.co.jp/books/9784873118802)』（原書名『[Deep Learning: A Practitioner's Approach](http://shop.oreilly.com/product/0636920035343.do)』）のサポートサイトです。
 
 ## サンプルコード
 
@@ -14,61 +14,39 @@
 
 ### 使用方法
 
-サンプルを実行する前に、必要なライブラリをインストールする必要があります。
+[Maven](https://maven.apache.org/)を用いてサンプルコードをビルドしてください。
 
 ```bash
-$ pip install -r requirements.txt
+$ mvn clean install 
 ```
 
-サンプルコードは`fdl_example`の親ディレクトリから実行することを想定しています。
-また、`fdl_example`をパッケージとして認識するために`PYTHONPATH`を指定する必要があります。
-
-**実行例**
+サンプルプログラムを実行するには`runexamples.sh`スクリプトを用いてください（[bash](https://www.gnu.org/software/bash/)環境が必要です）。
 
 ```bash
-$ export PYTHONPATH=$PYTHONPATH:.
-$ python fdl_example/chapter6/autoencoder_mnist.py 2
+$ ./runexamples.sh
 ```
 
-#### 6章の補足
-
-6章では、matplotlibを使って埋め込みの可視化をしています。 matplotlibを使った可視化をするにはtkライブラリが必要となります。
+スクリプトを実行するとサンプルプログラムのリストが表示されます。実行したいサンプルプログラムの番号を記入し、エンターキーを押せばプログラムが走り始めます。すべてのプログラムを順々に実行したい場合は`runexamples.sh`の引数に`--all`を追加してください。他のオプションは`-h`を引数に追加すると確認できます。
 
 ```bash
-$ sudo apt-get install python3-tk tk-dev
+$ ./runexamples.sh [-h | --help]
 ```
 
-pyenvなどを使って環境を構築している場合は、上記のコマンドでtkライブラリをインストールした後でpythonをインストールし直す必要があります。
+もちろん、[IntelliJ IDEA](https://www.jetbrains.com/idea/)などの統合開発環境を用いることもできます。
 
-#### 7章の補足
-
-7章のサンプルコードを実行するには、 以下のデータが必要となります。
-
-1. [Google News を使って構築した単語の埋め込み表現データ](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit)
-   - ダウンロードしたファイルを展開後、`fdl_example`の親ディレクトリに配置してください。
-2. [CoNLL-2000の品詞データ](http://www.cnts.ua.ac.be/conll2000/chunking/)
-   - 上記のリンクからダウンロードできない場合は[Kaggleのページ](https://www.kaggle.com/nltkdata/conll-corpora/data)からダウンロードできます。
-     - ダウンロードしたファイルを展開後、`conll2000/train.txt`と`conll2000/test.txt`をそれぞれ`data/pos_data/pos.train.txt`と`data/pos_data/pos.test.txt`に配置してください。
-
-#### 8章の補足
-
-8章のサンプルコードを実行するには、bAbiデータセットが必要となります。[bAbiプロジェクトページ](https://research.fb.com/downloads/babi/)から`bAbI Tasks Data 1-20 (v1.2)`をダウンロードして展開後、`tasks_1-20_v1-2/en-10k`を`data/babi-en-10k`にコピーしてください。
-
-## 実行環境
+## 検証環境
 
 日本語版で検証に使用した各ソフトウェアのバージョンは以下のとおりです。
 
-* OS
-  * Ubuntu 16.04 LTS
-* ライブラリ
-  * tensorflow 1.4.0
-  * scikit-learn 0.19.1
-  * scipy 1.0.0
-  * matplotlib 2.1.2
-  * gensim 3.3.0
-  * leveldb 0.194
-  * tflearn 0.3.2
-  * h5py 2.8.0rc1
+* macOS Mojave
+* Java JDK 1.8.0_212 
+* Maven 3.6.1
+
+## 資料
+
+さらなる情報に関しては[deeplearning4j.org](http://deeplearning4j.org/)や、DL4Jの[JavaDoc](https://deeplearning4j.org/api/latest/)をご覧ください。
+
+もし何か問題がありましたらエラーログとともにissue等でご連絡ください。修正案がありましたらプルリクエストを送ってください。皆様のフィードバックをお待ちしております。
 
 ## 正誤表
 
